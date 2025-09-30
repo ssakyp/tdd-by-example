@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class MoneyTest {
+    // By Test-Driven-Development by Example book
     @Test
     void testMultiplication() {
         Money fiveDollar  = Money.dollar(5);
