@@ -1,7 +1,22 @@
 package kz.sultan;
 
+import java.util.HashMap;
+
 public class Bank {
+    private HashMap<Pair, Integer> rateMap = new HashMap<>();
+
     Money reduce(Expression source, String toCurrency) {
-        return source.reduce(toCurrency);
+        return source.reduce(this, toCurrency);
+    }
+
+    public int rate(String fromCurrency, String toCurrency) {
+        if (fromCurrency.equals(toCurrency)) {
+            return 1;
+        }
+        return rateMap.get(new Pair(fromCurrency, toCurrency));
+    }
+
+    public void addRate(String from, String to, int rate) {
+        rateMap.put(new Pair(from, to), rate);
     }
 }
